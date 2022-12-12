@@ -1,0 +1,32 @@
+{
+  "name": "tinify-compress-images",
+  "version": "1.0.3",
+  "description": "compressing images",
+  "keywords": [
+    "tinify",
+    "tinypng",
+    "tinyjpg",
+    "compress",
+    "optimize",
+    "images"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ting": "nodemon index.js"
+  },
+  "author": "gong",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-colors": "^4.1.3",
+    "chalk": "^5.1.2",
+    "fancy-log": "^2.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0",
+    "tinify": "^1.7.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzwgq222/tinify-compress-images.git"
+  }
+}
