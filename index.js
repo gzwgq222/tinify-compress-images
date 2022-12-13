@@ -3,7 +3,7 @@
  * @Author: GongQiang
  * @Date: 2022-12-01 09:34:51
  * @LastEditors: GongQiang
- * @LastEditTime: 2022-12-12 18:39:29
+ * @LastEditTime: 2022-12-13 10:29:35
  */
 const fs = require('fs');
 const path = require('path');
@@ -50,12 +50,18 @@ const compressingImages = async (config = {}) => {
   const size = (allImages.reduce((pre, cur) => pre += +(cur.size), 0) / 1024).toFixed(2)
 
   log(chalk.cyan(`all images: ${length}张图片, 总计：${size}M`))
+  log.dir(allImages)
 
   const cacheMd5String = getFileSync(cacheMd5Path)
   const cacheMd5Map = cacheMd5String ? JSON.parse(cacheMd5String) : {}
+  const isWin = process.platform === 'win32'
 
   for (const image of allImages) {
-    const imagePath = image.path.replace(process.cwd(), '')
+    let imagePath = image.path.replace(process.cwd(), '')
+    /* path.normalize，window、mac
+       node doc：https://nodejs.org/dist/latest-v18.x/docs/api/path.html#pathnormalizepath
+    */
+    if (isWin) imagePath = imagePath.replace('\\', '/')
     const contents = fs.readFileSync(image.path)
     const md5Key = getMd5(contents)
     if (cacheMd5Map[imagePath] !== md5Key) {
