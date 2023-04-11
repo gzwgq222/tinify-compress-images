@@ -10,7 +10,7 @@ const { compressingImages } = require('tinify-compress-images')
 const path = require('path')
 
 const config = {
-  key: 'qNjljFK4DYKNJw8zMwJFGDvG2HM5CFjy', // tinify key
+  key: 'xxxxxxxxx', // tinify key
   projectPath: path.join(__dirname, '../../fe-middleend/src/pages/promo'), // project path
   ignoreDirectorys: ['node_modules', 'dist', '.git', '.site'], // default ['node_modules', '.git']
   cacheMd5Path: './md5.json' // default './md5.json'
